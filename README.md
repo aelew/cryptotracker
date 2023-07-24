@@ -9,6 +9,8 @@
 - Usage of Discord interactions (application commands)
 - Easy setup and installation
 
+![Example](./images/example.png)
+
 ## Run Locally
 
 Clone the project
