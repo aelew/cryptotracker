@@ -3,11 +3,10 @@ import os, re
 
 from helpers.shared import bot, transaction_queue
 from helpers.transaction import Transaction
+from helpers.constants import TXID_PATTERN
 from helpers.tasks import monitor_task
 from helpers.enums import Crypto
 import helpers.btc as btc
-
-txid_pattern = r"[0-9a-f]{64}$"
 
 
 @listen()
@@ -59,14 +58,14 @@ async def track_command(ctx: SlashContext,
 
         # If the user provided a link, attempt to extract the TXID from it
         if txid.startswith("http"):
-            matches = re.findall(txid_pattern, txid)
-            if len(matches) > 0:
+            matches = re.findall(TXID_PATTERN, txid)
+            if matches:
                 txid = matches[0]
 
     match crypto:
         case Crypto.BTC.name:
-            latest_block_height = await btc.get_latest_block_height()
-            r = await btc.get_raw_tx(txid)
+            latest_block_height = btc.get_latest_block_height()
+            r = btc.get_raw_tx(txid)
             if not r.is_success:
                 description = "The specified transaction ID is invalid." if r.status_code == 404 else "The server returned an unexpected response."
                 embed = Embed(title=":x:  An error occurred",
@@ -78,7 +77,7 @@ async def track_command(ctx: SlashContext,
             txid = data["hash"]
 
             # Fee in USD
-            fee_in_usd = await btc.get_usd_rate() * (data["fee"] / 1e8)
+            fee_in_usd = btc.get_usd_rate() * (data["fee"] / 1e8)
 
             tx_block_height = data["block_height"]
             if tx_block_height:

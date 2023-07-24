@@ -11,8 +11,8 @@ async def check_transaction(tx: Transaction):
     global btc_usd_rate
     match tx.crypto:
         case Crypto.BTC.name:
-            latest_block_height = await btc.get_latest_block_height()
-            r = await btc.get_raw_tx(tx.id)
+            latest_block_height = btc.get_latest_block_height()
+            r = btc.get_raw_tx(tx.id)
 
             data = r.json()
             tx_block_height = data["block_height"]
@@ -29,11 +29,11 @@ async def check_transaction(tx: Transaction):
             if not completed:
                 return
 
-            fee_in_usd = await btc.get_usd_rate() * (tx.fee / 1e8)
+            fee_in_usd = btc.get_usd_rate() * (tx.fee / 1e8)
 
             # Create an embed to respond with
             description = f"Your transaction has reached {current_confirmations} {'confirmation' if current_confirmations == 1 else 'confirmations'} [[view]](https://mempool.space/tx/{tx.id})."
-            embed = Embed(title=":warning:  Transaction confirmed",
+            embed = Embed(title=":white_check_mark:  Transaction confirmed",
                           description=description,
                           color=RoleColors.GREEN)
             embed.add_fields(

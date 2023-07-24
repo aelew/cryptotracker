@@ -1,4 +1,4 @@
 discord-py-interactions
 python-dotenv
-httpx[http2]
+httpx
 yapf
