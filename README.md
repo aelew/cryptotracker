@@ -31,7 +31,7 @@ Install dependencies
 
 Set up environment variables
 
-```bash
+```
   To run this project, you will need to set up the required environment variables.
   These can be found in the `.env.example` file.
 ```
