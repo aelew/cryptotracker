@@ -1,0 +1,4 @@
+discord-py-interactions
+python-dotenv
+httpx[http2]
+yapf
