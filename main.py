@@ -80,9 +80,9 @@ async def track_command(ctx: SlashContext,
             # Fee in USD
             fee_in_usd = await btc.get_usd_rate() * (data["fee"] / 1e8)
 
-            # Calculate the number of confirmations using the latest block height and the block height of the transaction
             tx_block_height = data["block_height"]
             if tx_block_height:
+                # Calculate the number of confirmations using the latest block height and the block height of the transaction
                 calc_conf = latest_block_height - tx_block_height + 1
                 current_confirmations = max(0, min(calc_conf, 6))
             else:
