@@ -1,12 +1,29 @@
-from helpers.transaction import Transaction
-from interactions import Client, Intents
-from dotenv import load_dotenv
 from collections import deque
+
+from dotenv import load_dotenv
+from interactions import Client, Intents
+
+from helpers.transaction import Transaction
 
 load_dotenv()
 
-# This is here to prevent circular imports
 bot = Client(intents=Intents.DEFAULT)
+tx_queue: deque[Transaction] = deque()
 
-transaction_queue: deque[Transaction] = deque()
-btc_usd_rate = 0
+
+def queue_transaction(tx: Transaction):
+    """
+    Adds a transaction to the queue.
+    :param tx: The transaction to add.
+    """
+    tx_queue.append(tx)
+    print(f"[+] TX (type: {tx.coin.symbol.name} | hash: {tx.id})")
+
+
+def remove_transaction(tx: Transaction):
+    """
+    Removes a transaction from the queue.
+    :param tx: The transaction to remove.
+    """
+    tx_queue.remove(tx)
+    print(f"[-] TX (type: {tx.coin.symbol.name} | hash: {tx.id} | conf: {tx.required_confirmations})")

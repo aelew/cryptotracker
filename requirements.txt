@@ -1,4 +1,5 @@
 discord-py-interactions
 python-dotenv
+cachetools
 httpx
-yapf
+web3
