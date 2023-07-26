@@ -1,11 +1,13 @@
 import os
 import re
+from typing import Annotated
 
 from interactions import (listen, slash_command, Activity, ActivityType, OptionType, SlashContext, SlashCommandChoice,
                           SlashCommandOption, Status)
 
 from crypto import *
 from crypto.base import CoinSymbol
+from helpers.converters import LowerConverter
 from helpers.shared import bot
 from helpers.tasks import monitor_task
 
@@ -56,7 +58,8 @@ async def on_ready():
         )
     ]
 )
-async def track_command(ctx: SlashContext, coin: CoinSymbol, txid: str, confirmations: int = 1):
+async def track_command(ctx: SlashContext, coin: CoinSymbol, txid: Annotated[str, LowerConverter],
+                        confirmations=1):
     """
     Called when a user uses the /track command.
     :param ctx: The application command interaction context.
@@ -68,8 +71,6 @@ async def track_command(ctx: SlashContext, coin: CoinSymbol, txid: str, confirma
     if confirmations > crypto.max_confirmations:
         return await ctx.send(f"The maximum number of confirmations for "
                               f"**{crypto.name}** is **{crypto.max_confirmations}**.")
-
-    txid = txid.lower()
 
     # If the user provided a link, attempt to extract the TXID from it
     if txid.startswith("http"):
