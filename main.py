@@ -3,7 +3,7 @@ import re
 from typing import Annotated
 
 from interactions import (listen, slash_command, Activity, ActivityType, OptionType, SlashContext, SlashCommandChoice,
-                          SlashCommandOption, Status)
+                          SlashCommandOption, Status, Embed, RoleColors, EmbedField, Timestamp)
 
 from crypto import *
 from crypto.base import CoinSymbol
@@ -83,5 +83,31 @@ async def track_command(ctx: SlashContext, coin: CoinSymbol, txid: Annotated[str
     await crypto.track(ctx, txid, confirmations)
 
 
+@slash_command(
+    name="prices",
+    description="Displays the prices of top cryptocurrencies."
+)
+async def prices_command(ctx: SlashContext):
+    """
+    Called when a user uses the /prices command.
+    :param ctx: The application command interaction context.
+    """
+    await ctx.defer()
+
+    embed = Embed(title=":coin: Cryptocurrency Prices", color=RoleColors.YELLOW, timestamp=Timestamp.now())
+    embed.add_fields(*[
+        EmbedField(
+            name=f"{coin.name} ({coin.symbol.name})",
+            value=f"{coin.emoji} ${coin.get_usd_rate():,.2f} USD",
+            inline=True
+        )
+        for coin in coins.values()
+    ])
+
+    await ctx.send(embed=embed)
+
+
 # Start the Discord bot
+
+
 bot.start(os.getenv("DISCORD_BOT_TOKEN"))

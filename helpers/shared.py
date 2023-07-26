@@ -8,7 +8,6 @@ from helpers.transaction import Transaction
 load_dotenv()
 
 bot = Client(intents=Intents.DEFAULT)
-bot.load_extension("interactions.ext.jurigged")
 
 tx_queue: deque[Transaction] = deque()
 

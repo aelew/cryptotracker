@@ -1,6 +1,5 @@
 discord-py-interactions
 python-dotenv
 cachetools
-jurigged
 httpx
 web3
