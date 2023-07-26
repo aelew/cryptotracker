@@ -15,12 +15,6 @@ coins = {
     CoinSymbol.ETH: Ethereum()
 }
 
-rates: dict[CoinSymbol, float] = {
-    CoinSymbol.BTC: 0,
-    CoinSymbol.LTC: 0,
-    CoinSymbol.ETH: 0
-}
-
 
 @listen()
 async def on_ready():
