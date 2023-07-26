@@ -83,10 +83,7 @@ async def track_command(ctx: SlashContext, coin: CoinSymbol, txid: Annotated[str
     await crypto.track(ctx, txid, confirmations)
 
 
-@slash_command(
-    name="prices",
-    description="Displays the prices of top cryptocurrencies."
-)
+@slash_command(name="prices", description="Displays the prices of top cryptocurrencies.")
 async def prices_command(ctx: SlashContext):
     """
     Called when a user uses the /prices command.
@@ -107,7 +104,28 @@ async def prices_command(ctx: SlashContext):
     await ctx.send(embed=embed)
 
 
+@slash_command(name="help", description="Displays information about the bot.")
+async def help_command(ctx: SlashContext):
+    """
+    Called when a user uses the /help command.
+    :param ctx: The application command interaction context.
+    """
+    embed = Embed(
+        title=":coin: CryptoTracker Help",
+        description="<:github:1133138264270831616> [This bot is open-source!](https://github.com/aelew/cryptotracker)",
+        color=RoleColors.BLUE,
+        timestamp=Timestamp.now()
+    )
+    embed.add_field(
+        name=":tools: Commands",
+        value="\n".join([
+            f"`/{command.resolved_name}` • {command.description}"
+            for command in bot.application_commands
+        ])
+    )
+
+    await ctx.send(embed=embed)
+
+
 # Start the Discord bot
-
-
 bot.start(os.getenv("DISCORD_BOT_TOKEN"))
