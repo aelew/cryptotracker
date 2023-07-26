@@ -1,7 +1,7 @@
 # CryptoTracker
 
-![Discord server invite](https://img.shields.io/discord/1132807338961686538?logo=discord&logoColor=white&label=community&color=%235865F2&cacheSeconds=300&link=https%3A%2F%2Fdiscord.gg%2FdCNthcSrkS)
-![Discord bot invite](https://img.shields.io/badge/bot-click_to_invite-brightgreen?logo=discord&logoColor=white&link=https%3A%2F%2Fdiscord.com%2Fapi%2Foauth2%2Fauthorize%3Fclient_id%3D1132724830135922688%26permissions%3D277025508352%26scope%3Dbot%2520applications.commands)
+[![Discord server invite](https://img.shields.io/discord/1132807338961686538?logo=discord&logoColor=white&label=community&color=%235865F2&cacheSeconds=300)](https://discord.gg/dCNthcSrkS)
+[![Discord bot invite](https://img.shields.io/badge/bot-click_to_invite-brightgreen?logo=discord&logoColor=white)](https://discord.com/api/oauth2/authorize?client_id=1132724830135922688&permissions=277025508352&scope=bot%20applications.commands)
 ![GitHub stars](https://img.shields.io/github/stars/aelew/cryptotracker)
 
 🤖 A Discord bot that notifies users when their cryptocurrency transaction has confirmed.
