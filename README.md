@@ -31,10 +31,10 @@ Install dependencies
   pip install -r requirements.txt
 ```
 
-Set up environment variables
+Set environment variables
 
 ```
-  To run this project, you will need to set up the required environment variables.
+  To run this project, you will need to set the required environment variables.
   These can be found in the `.env.example` file.
 ```
 
