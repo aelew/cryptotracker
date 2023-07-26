@@ -23,7 +23,7 @@ class Ethereum(Coin):
             explorer_url="https://etherscan.io/tx/{id}",
             fee_denomination=FeeDenomination(name="ETH", decimal_digits=2, conversion_rate=1)
         )
-        self.eth = Web3(Web3.HTTPProvider(os.getenv("QUICKNODE_HTTP_PROVIDER"))).eth
+        self.eth = Web3(Web3.HTTPProvider(os.getenv("WEB3_HTTP_PROVIDER"))).eth
 
     def get_latest_block_height(self):
         return self.eth.block_number
