@@ -4,7 +4,7 @@
 [![Discord bot invite](https://img.shields.io/badge/bot-click_to_invite-brightgreen?logo=discord&logoColor=white)](https://discord.com/api/oauth2/authorize?client_id=1132724830135922688&permissions=277025508352&scope=bot%20applications.commands)
 ![GitHub stars](https://img.shields.io/github/stars/aelew/cryptotracker)
 
-🤖 A Discord bot that notifies users when their cryptocurrency transaction has confirmed.
+🤖 A Discord bot that notifies users when their cryptocurrency transactions have confirmed.
 
 ## Features
 
@@ -14,6 +14,11 @@
 - Easy setup and installation
 
 ![Example](./images/example.png)
+
+## Contributions
+
+The development of CryptoTracker is an ongoing process, and everyone is welcome to contribute. Feel free to share your
+ideas, report issues, and help make CryptoTracker even better!
 
 ## Run Locally
 

@@ -112,7 +112,7 @@ async def help_command(ctx: SlashContext):
     """
     embed = Embed(
         title=":coin: CryptoTracker Help",
-        description="<:github:1133138264270831616> [This bot is open-source!](https://github.com/aelew/cryptotracker)",
+        description="<:github:1133138264270831616> [This bot is open source!](https://github.com/aelew/cryptotracker)",
         color=RoleColors.BLUE,
         timestamp=Timestamp.now()
     )
