@@ -58,5 +58,6 @@ async def send_tx_confirmed_embed(tx: Transaction, fields: list[EmbedField]):
                   f"{'confirmation' if tx.required_confirmations == 1 else 'confirmations'} {view_link}.",
                   RoleColors.GREEN)
     embed.add_fields(*fields)
+    embed.set_footer("Find this bot helpful? Leave a star on GitHub!")
     channel = bot.get_channel(tx.channel_id)
     await channel.send(content=f"<@{tx.user_id}>", embed=embed)
