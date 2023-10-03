@@ -1,6 +1,5 @@
 # CryptoTracker
 
-[![Discord server invite](https://img.shields.io/discord/1132807338961686538?logo=discord&logoColor=white&label=community&color=%235865F2&cacheSeconds=300)](https://discord.gg/dCNthcSrkS)
 [![Discord bot invite](https://img.shields.io/badge/bot-click_to_invite-brightgreen?logo=discord&logoColor=white)](https://discord.com/api/oauth2/authorize?client_id=1132724830135922688&permissions=277025508352&scope=bot%20applications.commands)
 ![GitHub stars](https://img.shields.io/github/stars/aelew/cryptotracker)
 
@@ -25,32 +24,32 @@ ideas, report issues, and help make CryptoTracker even better!
 Clone the project
 
 ```bash
-  git clone https://github.com/aelew/cryptotracker.git
+git clone https://github.com/aelew/cryptotracker.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd cryptotracker
+cd cryptotracker
 ```
 
 Install dependencies
 
 ```bash
-  pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 Set environment variables
 
 ```
-  To run this project, you will need to set the required environment variables.
-  These can be found in the `.env.example` file.
+To run this project, you need to set the required environment variables.
+Copy `.env.example` into a new file called `.env` and fill in the values.
 ```
 
 Start the bot
 
 ```bash
-  py main.py
+py main.py
 ```
 
 ## License
