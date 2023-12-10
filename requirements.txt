@@ -1,4 +1,4 @@
-discord-py-interactions==5.10.0
+discord-py-interactions
 python-dotenv
 cachetools
 httpx
